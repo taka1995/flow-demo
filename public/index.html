@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!--  ----------------------------------------------------------------------  -->
+<!--  次の <META> 要素を、HTML の <HEAD>タグ間に追加してください。必要に応じて、charset                  -->
+<!--  パラメータを変更して、HTML ページの文字コードを指定してください。                                     -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+ function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+</script>
+
   <meta charset="utf-8">
   <title>やまうえの学校、APU</title>
   <link rel="icon" href="re：quest.jpg">
@@ -24,13 +35,40 @@
       <p>WELCOME TO APU WORLD</p>
       <div class="submittion">
         
-<form action="postgres://sanqjeqsvmdkab:40fef6d94c6b02f43477c2d0f9bef4f37574b19cc19a88008660d703cf80fc99@ec2-54-197-239-115.compute-1.amazonaws.com:5432/d3e1oa9qo0fvtp" method="post">
-      <p>First Name<input type="text" name="名前" /></p>
-      <p>Last Name<input type="text" name="名前" /></p>
-      <p>Mail<input type="text" name="メール" /></p>
-      <p>Submit<input type="submit" value="送信" /></p>
-  </form>
-        
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  次の <FORM> 要素をページに追加してください。                                              -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+<input type=hidden name='captcha_settings' value='{"keyname":"yueru","fallback":"true","orgId":"00D2v000002A8sp","ts":""}'>
+<input type=hidden name="oid" value="00D2v000002A8sp">
+<input type=hidden name="retURL" value="https://yueru.herokuapp.com">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  注意: これらの項目は、省略可能なデバッグ用要素です。デバッグモードでテストを行う場合は、これらの行をコメント解除してください。        -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail" value="takaiw14@gmail.com">      -->
+<!--  ----------------------------------------------------------------------  -->
+
+<label for="first_name">名</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+
+<label for="last_name">姓</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+
+<label for="email">メール</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+
+<label for="company">会社名</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
+
+<label for="city">市区郡</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+
+<label for="state">都道府県</label><input  id="state" maxlength="20" name="state" size="20" type="text" /><br>
+
+<div class="g-recaptcha" data-sitekey="https://yueru.herokuapp.com"></div><br>
+<input type="submit" name="submit">
+
+</form>
+
       </div>
 </div>
     </div>
