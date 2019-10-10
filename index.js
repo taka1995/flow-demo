@@ -49,12 +49,7 @@ showTimes = () => {
   return result;
 }
 
-"dependencies": {
-    "cool-ascii-faces": "^1.3.4",
-    "ejs": "^2.5.6",
-    "express": "^4.15.2",
-    "pg": "^7.4.3"
-  },
+
     const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
